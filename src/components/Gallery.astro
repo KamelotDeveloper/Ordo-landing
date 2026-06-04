@@ -4,10 +4,11 @@ export interface Props {
   interval?: number;
 }
 
+const base = import.meta.env.BASE_URL;
 const defaultImages = [
-  { src: '/1.webp', alt: 'Panel principal del ERP' },
-  { src: '/2.webp', alt: 'Módulo de inventario' },
-  { src: '/3.webp', alt: 'Módulo de finanzas' },
+  { src: base + '1.webp', alt: 'Panel principal del ERP' },
+  { src: base + '2.webp', alt: 'Módulo de inventario' },
+  { src: base + '3.webp', alt: 'Módulo de finanzas' },
 ];
 
 const { images = defaultImages, interval = 5000 } = Astro.props;
