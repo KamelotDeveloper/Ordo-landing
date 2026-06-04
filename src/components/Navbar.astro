@@ -1,0 +1,103 @@
+<nav class="sticky top-0 z-50 bg-brand-base/80 backdrop-blur-sm border-b border-brand-border">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="/" class="flex items-center gap-2">
+        <span class="text-xl font-bold text-white">GA</span>
+        <span class="text-xl text-brand-accent">ERP</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#modulos" class="text-gray-400 hover:text-white transition text-sm">Módulos</a>
+        <a href="#producto" class="text-gray-400 hover:text-white transition text-sm">Producto</a>
+        <a href="/contacto" class="text-gray-400 hover:text-white transition text-sm">Contacto</a>
+        <a
+          href="/contacto"
+          class="bg-brand-accent text-white rounded-full px-5 py-2 text-sm font-medium hover:opacity-90 transition neon-glow"
+        >
+          Probalo ahora →
+        </a>
+      </div>
+
+      <button
+        id="menu-toggle"
+        class="md:hidden p-2 text-gray-400 hover:text-white transition"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+      >
+        <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="md:hidden overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0"
+  >
+    <div class="px-4 py-4 space-y-3 bg-brand-card border-t border-brand-border">
+      <a href="#modulos" class="block text-gray-400 hover:text-white transition text-sm py-2">Módulos</a>
+      <a href="#producto" class="block text-gray-400 hover:text-white transition text-sm py-2">Producto</a>
+      <a href="/contacto" class="block text-gray-400 hover:text-white transition text-sm py-2">Contacto</a>
+      <a
+        href="/contacto"
+        class="block bg-brand-accent text-white rounded-full px-5 py-2 text-sm font-medium hover:opacity-90 transition text-center"
+      >
+        Probalo ahora →
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const toggle = document.getElementById('menu-toggle')
+  const menu = document.getElementById('mobile-menu')
+  const iconOpen = document.getElementById('icon-open')
+  const iconClose = document.getElementById('icon-close')
+  const nav = document.querySelector('nav')
+
+  function open() {
+    menu.classList.remove('max-h-0', 'opacity-0')
+    menu.classList.add('opacity-100')
+    toggle.setAttribute('aria-expanded', 'true')
+    toggle.setAttribute('aria-label', 'Cerrar menú')
+    iconOpen.classList.add('hidden')
+    iconClose.classList.remove('hidden')
+  }
+
+  function close() {
+    menu.classList.add('max-h-0', 'opacity-0')
+    menu.classList.remove('opacity-100')
+    toggle.setAttribute('aria-expanded', 'false')
+    toggle.setAttribute('aria-label', 'Abrir menú')
+    iconOpen.classList.remove('hidden')
+    iconClose.classList.add('hidden')
+  }
+
+  toggle.addEventListener('click', function () {
+    if (menu.classList.contains('max-h-0')) {
+      open()
+    } else {
+      close()
+    }
+  })
+
+  document.addEventListener('click', function (e) {
+    if (!nav.contains(e.target) && !menu.classList.contains('max-h-0')) {
+      close()
+    }
+  })
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !menu.classList.contains('max-h-0')) {
+      close()
+    }
+  })
+
+  menu.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', close)
+  })
+</script>

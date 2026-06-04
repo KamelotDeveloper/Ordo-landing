@@ -1,0 +1,87 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Contacto — GA ERP">
+  <Navbar />
+
+  <section class="min-h-screen flex items-center justify-center py-24 px-4">
+    <div class="w-full max-w-lg">
+      <div class="mb-2">
+        <span class="text-xs tracking-widest text-brand-accent font-semibold">CONTACTO</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">
+        Escribinos.
+      </h1>
+      <p class="text-gray-400 mb-10 max-w-md">
+        Contanos en qué podemos ayudarte. Te respondemos a la brevedad.
+      </p>
+
+      <form
+        action="mailto:angelerigiuliano@gmail.com"
+        method="POST"
+        enctype="text/plain"
+        class="space-y-5"
+      >
+        <div>
+          <label for="nombre" class="block text-sm text-gray-300 mb-1.5 font-medium">Nombre</label>
+          <input
+            type="text"
+            id="nombre"
+            name="Nombre"
+            required
+            placeholder="Tu nombre"
+            class="w-full bg-brand-card border border-brand-border rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition text-sm"
+          />
+        </div>
+
+        <div>
+          <label for="telefono" class="block text-sm text-gray-300 mb-1.5 font-medium">Teléfono</label>
+          <input
+            type="tel"
+            id="telefono"
+            name="Teléfono"
+            required
+            placeholder="Tu teléfono"
+            class="w-full bg-brand-card border border-brand-border rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition text-sm"
+          />
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm text-gray-300 mb-1.5 font-medium">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="Email"
+            required
+            placeholder="tu@email.com"
+            class="w-full bg-brand-card border border-brand-border rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition text-sm"
+          />
+        </div>
+
+        <div>
+          <label for="mensaje" class="block text-sm text-gray-300 mb-1.5 font-medium">Mensaje</label>
+          <textarea
+            id="mensaje"
+            name="Mensaje"
+            required
+            rows="5"
+            placeholder="Contanos cómo podemos ayudarte..."
+            class="w-full bg-brand-card border border-brand-border rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition text-sm resize-vertical"
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full bg-brand-accent text-white rounded-full py-3 font-semibold hover:bg-blue-600 transition neon-glow text-sm"
+        >
+          Enviar mensaje →
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
