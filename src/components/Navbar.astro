@@ -1,7 +1,7 @@
 <nav class="sticky top-0 z-50 bg-brand-base/80 backdrop-blur-sm border-b border-brand-border">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
-      <a href="/" class="flex items-center gap-2">
+      <a href={import.meta.env.BASE_URL} class="flex items-center gap-2">
         <span class="text-xl font-bold text-white">GA</span>
         <span class="text-xl text-brand-accent">ERP</span>
       </a>
@@ -9,9 +9,9 @@
       <div class="hidden md:flex items-center gap-8">
         <a href="#modulos" class="text-gray-400 hover:text-white transition text-sm">Módulos</a>
         <a href="#producto" class="text-gray-400 hover:text-white transition text-sm">Producto</a>
-        <a href="/contacto" class="text-gray-400 hover:text-white transition text-sm">Contacto</a>
+        <a href={import.meta.env.BASE_URL + "/contacto"} class="text-gray-400 hover:text-white transition text-sm">Contacto</a>
         <a
-          href="/contacto"
+          href={import.meta.env.BASE_URL + "/contacto"}
           class="bg-brand-accent text-white rounded-full px-5 py-2 text-sm font-medium hover:opacity-90 transition neon-glow"
         >
           Probalo ahora →
@@ -41,9 +41,9 @@
     <div class="px-4 py-4 space-y-3 bg-brand-card border-t border-brand-border">
       <a href="#modulos" class="block text-gray-400 hover:text-white transition text-sm py-2">Módulos</a>
       <a href="#producto" class="block text-gray-400 hover:text-white transition text-sm py-2">Producto</a>
-      <a href="/contacto" class="block text-gray-400 hover:text-white transition text-sm py-2">Contacto</a>
+      <a href={import.meta.env.BASE_URL + "/contacto"} class="block text-gray-400 hover:text-white transition text-sm py-2">Contacto</a>
       <a
-        href="/contacto"
+        href={import.meta.env.BASE_URL + "/contacto"}
         class="block bg-brand-accent text-white rounded-full px-5 py-2 text-sm font-medium hover:opacity-90 transition text-center"
       >
         Probalo ahora →
