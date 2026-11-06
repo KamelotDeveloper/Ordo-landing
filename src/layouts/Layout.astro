@@ -4,7 +4,8 @@ export interface Props {
   title?: string;
   description?: string;
 }
-const { title = 'GA ERP — El ERP que tu empresa realmente necesita', description = 'GA Software unifica finanzas, inventario, ventas y operaciones en una sola plataforma. Tomá decisiones con datos, no con suposiciones.' } = Astro.props;
+const { title = 'GA Software — Desarrollo de software a medida', description = 'GA Software es una empresa de desarrollo de software: aplicaciones a medida, plataformas web e integraciones. Conocé Ordo, nuestro ERP.' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!DOCTYPE html>
@@ -13,6 +14,13 @@ const { title = 'GA ERP — El ERP que tu empresa realmente necesita', descripti
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical.href} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="GA Software" />
+    <meta property="og:locale" content="es_AR" />
+    <meta name="twitter:card" content="summary" />
     <title>{title}</title>
     <ViewTransitions />
     <style>

@@ -1,0 +1,84 @@
+schema: spec-driven
+
+project: ordo-landing
+
+context: |
+  Static marketing site for GA ERP. UI copy is Spanish; code and artifacts are English.
+  Stack: Astro 5 + Tailwind CSS v3 via @astrojs/tailwind. Package manager: pnpm only.
+  Architecture: Layout shell + Astro components; pages index, contacto, politicas-de-privacidad.
+  Styling: mobile-first Tailwind, brand tokens in tailwind.config.mjs, inline SVG icons only.
+  Typography: Inter via Google Fonts @import in Layout.astro.
+  Deploy: GitHub Pages (site https://KamelotDeveloper.github.io, base /Ordo-landing).
+  No test runner, linter, formatter, or type checker configured; pnpm build is the only automated gate.
+
+strict_tdd: false
+
+testing:
+  strict_tdd: false
+  detected: 2026-11-04
+  test_runner:
+    available: false
+    framework: null
+    command: null
+  layers:
+    unit: false
+    integration: false
+    e2e: false
+  coverage:
+    available: false
+    command: null
+  quality:
+    linter:
+      available: false
+      command: null
+    type_checker:
+      available: false
+      command: null
+    formatter:
+      available: false
+      command: null
+  commands:
+    dev: pnpm dev
+    build: pnpm build
+    preview: pnpm preview
+
+delivery:
+  execution_mode: auto
+  artifact_store: openspec
+  delivery_strategy: auto-chain
+  review_budget_lines: 400
+
+rules:
+  proposal:
+    - Include a rollback plan for risky changes
+    - Do not add dependencies without explicit approval
+  specs:
+    - Use Given/When/Then for scenarios
+    - Use RFC 2119 keywords (MUST, SHALL, SHOULD, MAY)
+    - Require mobile-first behavior at every breakpoint
+    - Require brand tokens from tailwind.config.mjs instead of raw hex values
+    - Require inline SVG icons; never add an icon package or UI component library
+  design:
+    - Document component props and DOM contracts
+    - Prefer Tailwind utilities; justify any <style> block Tailwind cannot express
+    - Document accessibility behavior for interactive components
+  tasks:
+    - Group by phase with hierarchical numbering
+    - Keep tasks completable in one session
+    - Include a pnpm build verification task for each change
+  apply:
+    guidelines:
+      - Follow existing Astro component patterns
+      - Use pnpm only; never npm
+      - Never run git commands
+      - Write UI copy in Spanish and code/comments in English unless the change specifies otherwise
+    tdd: false
+    test_command: ""
+    build_command: pnpm build
+  verify:
+    test_command: ""
+    build_command: pnpm build
+    coverage_threshold: 0
+    allow_manual_verification: true
+  archive:
+    - Warn before merging destructive deltas
