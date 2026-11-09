@@ -50,8 +50,8 @@ export const apps: AppEntry[] = [
       {
         platform: 'windows',
         label: 'Windows 10/11 (64-bit)',
-        file: 'CanypSetup-0.1.0.exe',
-        version: '0.1.0',
+        file: 'CanypSetup-0.1.1.exe',
+        version: '0.1.1',
       },
     ],
   },
